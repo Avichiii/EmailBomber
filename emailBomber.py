@@ -68,23 +68,27 @@ class Email_Bomber():
     def email(self):
         try:
             print(Bcolors.RED + '\n+[+[+[ Setting up email ]+]+]+')
-            self.server = input(Bcolors.GREEN + 'Enter email server | or select premade options - 1:Gmail 2:Yahoo 3:Outlook <: ')
-            premade = ['1', '2', '3']
+            self.server = int(input(Bcolors.GREEN + 'Enter email server - 0: | or select premade options - 1:Gmail 2:Yahoo 3:Outlook <: '))
+            premade = [1, 2, 3]
             default_port = True
 
             if self.server not in premade:
                 default_port = False
-                self.port = input(Bcolors.GREEN + 'Enter the Port Number: ')
+                if self.server == 0:
+                    self.server = int(input(Bcolors.GREEN + 'Enter NotPremade email server <: ').lower())
+                    self.port = input(Bcolors.GREEN + 'Enter the Port Number: ')
             
             if default_port == True:
                 self.port = 587
 
-            if self.server == '1':
+            if self.server == 1:
                 self.server = 'smtp.gmail.com'
-            elif self.server == '2':
+            elif self.server == 2:
                 self.server = 'smtp.mail.yahoo.com'
-            elif self.server == '3':
+            elif self.server == 3:
                 self.server = 'smtp-mail.outlook.com'
+            elif (self.server > 4 or 1 < self.server):
+                print(Bcolors.RED + 'Please enter a valid Option')
             
             self.fromAddrs = input(Bcolors.GREEN + 'Enter from address <: ')
             self.fromPsswd = input(Bcolors.GREEN + 'Enter from Password <: ')
