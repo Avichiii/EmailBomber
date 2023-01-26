@@ -117,7 +117,7 @@ class Email_Bomber():
             print(Bcolors.RED + '\n+[+[+[ Attacking... ]+]+]+')
             for _ in range(self.amount + 1):
                 self.send() # self will be replaced by bomb {bomb.send()}
-                time.sleep(3)
+                # time.sleep(3)
             
             self.s.close()
             
