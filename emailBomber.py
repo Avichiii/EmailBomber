@@ -76,7 +76,7 @@ class Email_Bomber():
                 default_port = False
                 if self.server == 0:
                     self.server = int(input(Bcolors.GREEN + 'Enter NotPremade email server <: ').lower())
-                    self.port = input(Bcolors.GREEN + 'Enter the Port Number: ')
+                    self.port = int(input(Bcolors.GREEN + 'Enter the Port Number: '))
             
             if default_port == True:
                 self.port = 587
